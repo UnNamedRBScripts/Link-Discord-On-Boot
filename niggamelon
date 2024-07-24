@@ -1,0 +1,66 @@
+local TextChatService = game:GetService("TextChatService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+
+-- List of excluded user IDs
+local excludedUserIds = {
+    0, -- Replace with actual user IDs
+    0, -- Replace with actual user IDs
+    0, -- Replace with actual user IDs
+    0, -- Replace with actual user IDs
+    0, -- Replace with actual user IDs
+    0  -- Replace with actual user IDs
+}
+
+-- Function to check if a player is excluded
+local function isPlayerExcluded(userId)
+    for _, id in ipairs(excludedUserIds) do
+        if id == userId then
+            return true
+        end
+    end
+    return false
+end
+
+-- Function to send chat message
+local function Chat(str)
+    str = tostring(str)
+    if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
+        TextChatService.TextChannels.RBXGeneral:SendAsync(str)
+    else
+        ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(str, "All")
+    end
+end
+
+-- Function to show notification
+local function showNotification(title, text, duration)
+    game.StarterGui:SetCore("SendNotification", {
+        Title = title;
+        Text = text;
+        Duration = duration;
+    })
+end
+
+-- Main logic
+local function onPlayerAdded(player)
+    if isPlayerExcluded(player.UserId) then
+        print("Player " .. player.Name .. " is excluded from executing the script.")
+        return -- Exit the script for excluded players
+    end
+
+    print("Executing script for player " .. player.Name)
+
+    -- Execute chat and notification functions
+    Chat("ЅtагРгојесt оп Тор")
+    wait(1.5)
+    Chat("ԁіѕсогԁ․ɡɡ/РԝгЅԌtᴜЕпс")
+    showNotification("Credit", "Thanks Xany for chat script", 5)
+end
+
+-- Connect the function to the PlayerAdded event
+Players.PlayerAdded:Connect(onPlayerAdded)
+
+-- For already connected players when the script runs
+for _, player in ipairs(Players:GetPlayers()) do
+    onPlayerAdded(player)
+end
