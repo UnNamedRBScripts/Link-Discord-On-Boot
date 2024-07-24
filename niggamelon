@@ -4,11 +4,11 @@ local Players = game:GetService("Players")
 
 -- List of excluded user IDs
 local excludedUserIds = {
-    0, -- Replace with actual user IDs
-    0, -- Replace with actual user IDs
-    0, -- Replace with actual user IDs
-    0, -- Replace with actual user IDs
-    0, -- Replace with actual user IDs
+    1503766214, -- Replace with actual user IDs
+    3177663632, -- Replace with actual user IDs
+    4513406408, -- Replace with actual user IDs
+    6082267416, -- Replace with actual user IDs
+    6118177043, -- Replace with actual user IDs
     0  -- Replace with actual user IDs
 }
 
