@@ -11,7 +11,8 @@ local excludedUserIds = {
     6082267416,
     6118177043,
     4693492953,
-    7063124708
+    7063124708,
+    7063266837
 }
 
 -- Function to check if the player is excluded
